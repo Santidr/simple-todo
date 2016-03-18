@@ -1,0 +1,16 @@
+{
+  "name": "stodo",
+  "description": "A simple to do list for desktop",
+  "main": "main.js",
+  "authors": [
+    "Santi Díaz"
+  ],
+  "license": "GPL",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.5.0"
+  }
+}

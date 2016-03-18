@@ -1,0 +1,128 @@
+@import '_reset';
+@import '_variables';
+
+body {
+    background: #ededed;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 55px;
+    background: $pri-backcolor;
+    padding: 0 15px;
+
+    .header-wrap {
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include media-query;
+    }
+
+    a {
+        font-size: 22px;
+        color: $pri-textcolor;
+    }
+
+    input {
+        color: $pri-textcolor;
+        width: 50%;
+        border: none;
+        padding: 8px;
+        background: lighten($pri-backcolor, 5%);
+        transition: all .3s ease;
+        @include border-font;
+        &:focus {
+            color: #333;
+            background: $pri-textcolor;
+        }
+    }
+}
+
+.list {
+    margin: 66px auto 0;
+    width: 90%;
+
+    span.remain {
+        background: #1abc9c;
+        padding: 5px;
+        color: $pri-textcolor;
+        @include border-font;
+    }
+
+    li {
+        color: #333;
+        padding: 15px 0;
+        list-style: none;
+        text-decoration: none;
+        border-bottom: 1px solid #ddd;
+        margin-top: 10px;
+        &.ng-enter {
+            animation: bounceInUp .8s;
+        }
+        &.ng-leave {
+            animation: slideOutRight .8s;
+        }
+    }
+
+    @include media-query;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .40);
+
+    .new-task {
+        margin: 100px auto;
+        background: #fff;
+        width: 90%;
+        height: 140px;
+        border-radius: 5px;
+        padding: 20px;
+        animation: fadeInDown .6s;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.24);
+        @include media-query;
+
+        input {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-size: 18px;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            border: none;
+            border-radius: 3px;
+            padding: 10px 15px;
+            color: $pri-textcolor;
+            background: #e74c3c;
+            cursor: pointer;
+
+            &:nth-child(1) {
+                background: #ccc;
+                margin-right: 10px;
+            }
+
+            &.btn-enabled {
+                background: #27ae60;
+            }
+        }
+    }
+}
+
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.ng-leave {
+    animation: fadeInUp .8s;
+}
