@@ -48,5 +48,14 @@
             </ul>
         </div>
     </div>
+
+    <div class="notify-cont" ng-show="openNotify">
+        <div class="notifier">
+            <span>{{itemsDone}} items completed</span>
+            <a href="#" ng-click="undo()">Undo</a>
+            <a href="#" ng-click="closeNotify()">Hide</a>
+        </div>
+    </div>
+
 </body>
 </html>

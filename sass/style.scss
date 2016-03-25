@@ -64,7 +64,7 @@ header {
             animation: bounceInUp .8s;
         }
         &.ng-leave {
-            animation: slideOutRight .8s;
+            animation: bounceOut .8s;
         }
     }
 
@@ -115,6 +115,34 @@ header {
                 background: #27ae60;
             }
         }
+    }
+}
+
+.notify-cont {
+    position: fixed;
+    bottom: 24px;
+    width: 100%;
+    text-align: center;
+
+    .notifier {
+       display: inline-block;
+       background-color: #404040;
+       border-radius: 3px;
+       box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.157), 0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 4px 6px 0 rgba(0, 0, 0, 0.02);
+       padding: 20px;
+       animation: fadeInUp .6s;
+       @include media-query;
+       span {
+           margin-right: 40px;
+           color: $pri-textcolor;
+       }
+       a {
+           color: #1abc9c;
+           margin-right: 20px;
+           &:hover {
+               text-decoration: underline;
+           }
+       }
     }
 }
 

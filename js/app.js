@@ -1,6 +1,6 @@
 var app = angular.module('stodo', ['LocalStorageModule', 'ngAnimate']);
 
-app.controller('mainCtrl', function($scope, localStorageService) {
+app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
     if (localStorageService.get('todolist')) {
         $scope.list = localStorageService.get('todolist');
     } else {
@@ -29,13 +29,33 @@ app.controller('mainCtrl', function($scope, localStorageService) {
         return count;
     }
 
+    $scope.itemsDone = 0;
+    var saveItems = [];
+
     $scope.clearList = function() {
-        oldList = $scope.list;
+        var oldList = $scope.list;
+        saveItems = $scope.list;
         $scope.list = [];
         angular.forEach(oldList, function(item) {
-            if (!item.done) $scope.list.push(item);
+            if (!item.done) {
+                $scope.list.push(item);
+            } else {
+                $scope.itemsDone += 1;
+            }
         });
+        $scope.openNotify = true;
+    }
+
+    $scope.undo = function() {
+        $scope.list = saveItems;
+        $scope.closeNotify();
+    }
+
+    $scope.closeNotify = function() {
+        $scope.openNotify = false;
+        $scope.itemsDone = 0;
     }
 
     $scope.openModal = false;
+    $scope.openNotify = false;
 });

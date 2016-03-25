@@ -67,7 +67,7 @@ header {
     .list li.ng-enter {
       animation: bounceInUp .8s; }
     .list li.ng-leave {
-      animation: slideOutRight .8s; }
+      animation: bounceOut .8s; }
   @media screen and (min-width: 800px) {
     .list {
       width: 70%; } }
@@ -115,6 +115,33 @@ header {
         margin-right: 10px; }
       .modal .new-task button.btn-enabled {
         background: #27ae60; }
+
+.notify-cont {
+  position: fixed;
+  bottom: 24px;
+  width: 100%;
+  text-align: center; }
+  .notify-cont .notifier {
+    display: inline-block;
+    background-color: #404040;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.157), 0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 4px 6px 0 rgba(0, 0, 0, 0.02);
+    padding: 20px;
+    animation: fadeInUp .6s; }
+    @media screen and (min-width: 800px) {
+      .notify-cont .notifier {
+        width: 70%; } }
+    @media screen and (min-width: 950px) {
+      .notify-cont .notifier {
+        width: 50%; } }
+    .notify-cont .notifier span {
+      margin-right: 40px;
+      color: #f2f2f2; }
+    .notify-cont .notifier a {
+      color: #1abc9c;
+      margin-right: 20px; }
+      .notify-cont .notifier a:hover {
+        text-decoration: underline; }
 
 .done-true {
   text-decoration: line-through;
