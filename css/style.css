@@ -11,7 +11,8 @@ body a {
 /*--- Colores ---*/
 /*--- Mixins ---*/
 body {
-  background: #ededed; }
+  background: #ededed;
+  font-family: 'Roboto', sans-serif; }
 
 header {
   position: fixed;
@@ -34,7 +35,10 @@ header {
         width: 50%; } }
   header a {
     font-size: 22px;
-    color: #f2f2f2; }
+    color: #f2f2f2;
+    transition: all .3s; }
+    header a:hover {
+      transform: scale(1.3); }
   header input {
     color: #f2f2f2;
     width: 50%;

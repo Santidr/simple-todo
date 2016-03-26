@@ -43,10 +43,15 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
                 $scope.itemsDone += 1;
             }
         });
-        $scope.openNotify = true;
+        $timeout(function() {
+            $scope.openNotify = true;
+        }, 1000);
     }
 
     $scope.undo = function() {
+        angular.forEach(saveItems, function(item) {
+            item.done = false;
+        });
         $scope.list = saveItems;
         $scope.closeNotify();
     }
