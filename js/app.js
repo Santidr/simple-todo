@@ -8,6 +8,8 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
     }
 
     $scope.newTask = {};
+    $scope.openModal = false;
+    $scope.openNotify = false;
 
     $scope.$watchCollection('list', function(newValue, oldValue) {
         localStorageService.set('todolist', $scope.list);
@@ -30,12 +32,16 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
     }
 
     $scope.itemsDone = 0;
-    var saveItems = [];
+    var savedItems = [];
 
     $scope.clearList = function() {
         var oldList = $scope.list;
-        saveItems = $scope.list;
+        savedItems = $scope.list;
+
         $scope.list = [];
+        $scope.notifyMsg = "";
+        $scope.noDone = false;
+
         angular.forEach(oldList, function(item) {
             if (!item.done) {
                 $scope.list.push(item);
@@ -43,24 +49,32 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
                 $scope.itemsDone += 1;
             }
         });
+
+        if ($scope.itemsDone > 0) {
+            $scope.notifyMsg = $scope.itemsDone + " items completed";
+        } else {
+            $scope.notifyMsg = "There is no items completed";
+            $scope.noDone = true;
+        }
+
         $timeout(function() {
             $scope.openNotify = true;
         }, 1000);
+
+        console.log("Todo está bien")
     }
 
     $scope.undo = function() {
-        angular.forEach(saveItems, function(item) {
+        angular.forEach(savedItems, function(item) {
             item.done = false;
         });
-        $scope.list = saveItems;
+        $scope.list = savedItems;
         $scope.closeNotify();
     }
 
     $scope.closeNotify = function() {
         $scope.openNotify = false;
         $scope.itemsDone = 0;
+        savedItems = [];
     }
-
-    $scope.openModal = false;
-    $scope.openNotify = false;
 });

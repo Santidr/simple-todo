@@ -52,9 +52,9 @@
 
     <div class="notify-cont" ng-show="openNotify">
         <div class="notifier">
-            <span>{{itemsDone}} items completed</span>
-            <a href="#" ng-click="undo()">Undo</a>
-            <a href="#" ng-click="closeNotify()">Hide</a>
+            <span>{{notifyMsg}}</span>
+            <a href="#" ng-click="undo()" ng-hide="noDone">Undo</a>
+            <a href="#" ng-click="closeNotify()">Close</a>
         </div>
     </div>
 
