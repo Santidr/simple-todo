@@ -1,6 +1,6 @@
 var app = angular.module('stodo', ['LocalStorageModule', 'ngAnimate']);
 
-app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
+app.controller('mainCtrl', ['$scope', 'localStorageService', '$timeout', function($scope, localStorageService, $timeout) {
     if (localStorageService.get('todolist')) {
         $scope.list = localStorageService.get('todolist');
     } else {
@@ -35,6 +35,8 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
     var savedItems = [];
 
     $scope.clearList = function() {
+        if ($scope.openNotify) return;
+
         var oldList = $scope.list;
         savedItems = $scope.list;
 
@@ -51,17 +53,15 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
         });
 
         if ($scope.itemsDone > 0) {
-            $scope.notifyMsg = $scope.itemsDone + " items completed";
+            $scope.notifyMsg = $scope.itemsDone + " tasks completed";
         } else {
-            $scope.notifyMsg = "There is no items completed";
+            $scope.notifyMsg = "There are no tasks completed";
             $scope.noDone = true;
         }
 
         $timeout(function() {
             $scope.openNotify = true;
-        }, 1000);
-
-        console.log("Todo está bien")
+        }, 500);
     }
 
     $scope.undo = function() {
@@ -77,4 +77,4 @@ app.controller('mainCtrl', function($scope, localStorageService, $timeout) {
         $scope.itemsDone = 0;
         savedItems = [];
     }
-});
+}]);

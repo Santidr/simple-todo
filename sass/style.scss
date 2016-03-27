@@ -17,10 +17,9 @@ header {
     .header-wrap {
         height: 100%;
         margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         @include media-query;
+        @include flex-box;
+        align-items: center;
     }
 
     a {
@@ -129,7 +128,7 @@ header {
     position: fixed;
     bottom: 24px;
     width: 100%;
-    text-align: center;
+    padding: 0 20px;
 
     .notifier {
        display: inline-block;
@@ -137,15 +136,21 @@ header {
        border-radius: 3px;
        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.157), 0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 4px 6px 0 rgba(0, 0, 0, 0.02);
        padding: 20px;
+       margin: 0 auto;
        animation: fadeInUp .6s;
+       @include flex-box;
        @include media-query;
+
        span {
            margin-right: 40px;
            color: $pri-textcolor;
        }
        a {
            color: #1abc9c;
-           margin-right: 20px;
+           margin-right: 30px;
+           &:nth-child(2) {
+               margin-right: 0;
+           }
            &:hover {
                text-decoration: underline;
            }

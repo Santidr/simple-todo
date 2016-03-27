@@ -21,7 +21,7 @@
     <header>
         <div class="header-wrap">
             <a href="#"><i class="fa fa-plus" ng-click="openModal = true"></i></a>
-            <input type="text" name="name" placeholder="Search a task" ng-model="search">
+            <input type="text" name="name" placeholder="Search for a task" ng-model="search">
             <a href="#"><i class="fa fa-archive" ng-click="clearList()"></i></a>
         </div>
     </header>
@@ -53,8 +53,10 @@
     <div class="notify-cont" ng-show="openNotify">
         <div class="notifier">
             <span>{{notifyMsg}}</span>
-            <a href="#" ng-click="undo()" ng-hide="noDone">Undo</a>
-            <a href="#" ng-click="closeNotify()">Close</a>
+            <div class="">
+                <a href="#" ng-click="undo()" ng-hide="noDone">Undo</a>
+                <a href="#" ng-click="closeNotify()">Close</a>
+            </div>
         </div>
     </div>
 
