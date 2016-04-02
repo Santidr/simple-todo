@@ -1,6 +1,6 @@
 var app = angular.module('stodo', ['LocalStorageModule', 'ngAnimate']);
 
-app.controller('mainCtrl', ['$scope', 'localStorageService', '$timeout', '$interval', function($scope, localStorageService, $timeout) {
+app.controller('mainCtrl', ['$scope', 'localStorageService', '$timeout', function($scope, localStorageService, $timeout) {
     if (localStorageService.get('todolist')) {
         $scope.list = localStorageService.get('todolist');
     } else {
@@ -62,10 +62,6 @@ app.controller('mainCtrl', ['$scope', 'localStorageService', '$timeout', '$inter
         $timeout(function() {
             $scope.openNotify = true;
         }, 500);
-
-        $timeout(function() {
-            $scope.closeNotify();
-        }, 10000);
     }
 
     $scope.undo = function() {
