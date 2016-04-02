@@ -1,6 +1,8 @@
 /*--- Colores ---*/
 $pri-backcolor: #2c495c;
 $pri-textcolor: #f2f2f2;
+$item-color: #0074D9;
+$transition: all .3s ease;
 
 /*--- Mixins ---*/
 @mixin media-query {

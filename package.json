@@ -10,6 +10,7 @@
   "license": "GPL",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-connect": "^3.2.2",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",

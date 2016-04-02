@@ -30,8 +30,8 @@
         <span class="remain">{{remaining()}} of {{list.length}} remaining</span>
         <div class="wrap">
             <li ng-repeat="item in list | filter: search">
-                <label for="">
-                    <input type="checkbox" ng-model="item.done"> <span class="done-{{item.done}}">{{ item.name }}</span>
+                <label>
+                    <input type="checkbox" ng-model="item.done"> <span>{{ item.name }}</span>
                 </label>
             </li>
         </div>
@@ -54,8 +54,8 @@
         <div class="notifier">
             <span>{{notifyMsg}}</span>
             <div class="">
-                <a href="#" ng-click="undo()" ng-hide="noDone">Undo</a>
-                <a href="#" ng-click="closeNotify()">Close</a>
+                <a href="#" ng-click="undo()" ng-hide="noDone">undo</a>
+                <a href="#" ng-click="closeNotify()">close</a>
             </div>
         </div>
     </div>
