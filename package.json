@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Santi Díaz",
-  "license": "GPL",
+  "license": "GPL-3.0",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-connect": "^3.2.2",
@@ -16,5 +16,13 @@
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-webserver": "^0.9.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Santidr/simple-todo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Santidr/simple-todo/issues"
+  },
+  "homepage": "https://github.com/Santidr/simple-todo#readme"
 }

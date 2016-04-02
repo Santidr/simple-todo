@@ -62,6 +62,10 @@ app.controller('mainCtrl', ['$scope', 'localStorageService', '$timeout', functio
         $timeout(function() {
             $scope.openNotify = true;
         }, 500);
+
+        $timeout(function() {
+            $scope.closeNotify();
+        }, 10000);
     }
 
     $scope.undo = function() {
