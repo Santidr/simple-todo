@@ -1,4 +1,5 @@
-var app = angular.module('stodo', ['LocalStorageModule', 'ngAnimate']);
+var app = angular.module('stodo',
+    ['LocalStorageModule', 'ngAnimate', 'ui.sortable']);
 
 app.controller('mainCtrl', ['$scope', 'localStorageService', '$timeout', function($scope, localStorageService, $timeout) {
     if (localStorageService.get('todolist')) {
